@@ -1,0 +1,30 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    networks:
+      pihole_network:
+        ipv4_address: 'ur ip address here' #update, assign open ip manually
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"
+    environment:
+      TZ: 'Europe/Stockholm' # update according to your timezone
+      WEBPASSWORD: 'a password' #update password
+    volumes:
+      - '/home/dinodev/pihole/etc-pihole:/etc/pihole' #update
+      - '/home/dinodev/pihole/etc-dnsmasq.d:/etc/dnsmasq.d' #update
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+networks:
+  pihole_network:
+    driver: macvlan
+    driver_opts:
+      parent: enp4s0
+    ipam:
+      config:
+        - subnet: 192.168.69.0/24 #update if needed
+          gateway: 192.168.69.1 #update if needed
