@@ -1,0 +1,14 @@
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/dinodev/docker_configs/config:/config
+      - /media/HDD/nextcloud-store:/data
+    ports:
+      - 8065:443
+    restart: unless-stopped
