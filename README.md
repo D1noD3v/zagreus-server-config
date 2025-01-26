@@ -1,7 +1,7 @@
 # zagreus-server-config
 All server config files for my home server, named after Zagreus, the Greek demigod.
 
-Below you can see a topology for how the network is structured. All device that are running on a daily basis are shown.
+Below you can see a topology for how the network is structured, made using Microsoft Visio. All devices that are running on a daily basis are shown.
 
 ![network topology](topology.png "Title")
 
