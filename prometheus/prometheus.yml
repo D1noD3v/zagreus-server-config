@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 1m
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 1m
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+# These jobs don't seem to work at the moment, will investigate why
+  - job_name: 'navidrome'
+    metrics_path: 192.168.1.205:4533/metrics
+    scheme: http
+    static_configs:
+      - targets: ['navidrome:4533']
+
+  - job_name: 'jellyfin'
+    metrics_path: 192.168.1.205:8096/metrics
+    scheme: http
+    static_configs:
+      - targets: ['192.168.1.205:8096']
