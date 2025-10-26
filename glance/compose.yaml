@@ -1,0 +1,9 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8079:8080 # nginx proxy manager runs on 8080 so switch to other external port
