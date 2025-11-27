@@ -1,3 +1,6 @@
+# Archived!
+This repo has been archived as im planning on getting a more centralized platform for all my configurations. Link to new repo soon to come.
+
 # zagreus-server-config
 All server config files for my home server, named after Zagreus, the Greek demigod.
 
